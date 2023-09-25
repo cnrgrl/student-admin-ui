@@ -43,9 +43,15 @@ import { TopNavComponent } from './layout/top-nav/top-nav.component';
 import { StudentsComponent } from './layout/students/students.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ViewStudentComponent } from './layout/students/view-student/view-student.component';
 
 @NgModule({
-  declarations: [AppComponent, TopNavComponent, StudentsComponent],
+  declarations: [
+    AppComponent,
+    TopNavComponent,
+    StudentsComponent,
+    ViewStudentComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

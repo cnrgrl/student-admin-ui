@@ -4,6 +4,7 @@ import { Student } from 'src/app/models/models/ui-models/student.models';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export interface PeriodicElement {
   name: string;
@@ -33,11 +34,14 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class StudentsComponent implements OnInit {
   student: Student[] = [];
   filterString: any = '';
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'edit'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  constructor(private studentService: StudentService) {}
+  constructor(
+    private studentService: StudentService,
+    private readonly router: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.studentService.getStudents().subscribe(
