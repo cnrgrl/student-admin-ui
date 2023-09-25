@@ -32,6 +32,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class StudentsComponent implements OnInit {
   student: Student[] = [];
+  filterString: any = '';
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -50,5 +51,8 @@ export class StudentsComponent implements OnInit {
   }
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+  }
+  filterStudent() {
+    this.dataSource.filter = this.filterString.trim().toLocaleLowerCase();
   }
 }
