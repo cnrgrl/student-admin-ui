@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { StudentService } from './student.service';
-import { Student } from 'src/app/models/models/ui-models/student.models';
+import { Student } from 'src/app/models/ui-models/student.models';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
